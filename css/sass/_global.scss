@@ -92,7 +92,7 @@ section div {
 
     .other-executives {
       width: columns(4);
-      @include nesting;
+      @include nesting(div);
       @include last;
 
       div {

@@ -20,7 +20,7 @@ $line-height:                 1.375;      // establish a consistent line-height 
 $vertical-measure:            1.375em;    // establish a vertical distance for margins equal to line-height
 
 // Grid variables
-$max-width:       1000px;                 // set page max-width
-$column-width:    15%;                    // set column width
-$gutter-width:    2%;                     // set gutter width
-$maximum-columns: 6;                      // set max number of columns
+$max-width:                   1000px;                 // set page max-width
+$column-width:                15%;                    // set column width
+$gutter:                      2%;                     // set gutter width
+$max-columns:                 6;                      // set max number of columns
