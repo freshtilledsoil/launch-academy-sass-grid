@@ -1,0 +1,108 @@
+/* =================================================================================================
+Global styles
+================================================================================================= */
+
+// set up body and container padding/widths/etc ================================================== /
+body { padding: 0 1em; margin: 0; }
+.container { width: 100%; max-width: $max-width; margin: 0 auto; padding: 0; }
+// do not use the row mixin for your container. the direct child selectors will bork everything
+img { max-width: 100%; }
+
+// declare non-grid-related styles for your elements ============================================= /
+section div {
+  padding: 1em 0;
+}
+
+.hero {
+  margin-bottom: $vertical-measure;
+  background-color: $gray10;
+
+  .product-image {
+    height: $vertical-measure * 8;
+    background-color: $gray60;
+    padding: 0;
+  }
+}
+
+.partner-quotes div {
+  background-color: $gray10;
+}
+
+[role="contentinfo"] {
+  padding: 0.5em 0;
+  text-align: center;
+
+  p {
+    margin: 0;
+  }
+}
+
+// get grid styles in gear once viewport is large enough ========================================= /
+@media screen and (min-width: 36em) {
+
+  .partner-quotes,
+  .executive-team {
+    @include row;
+    margin-bottom: $vertical-measure;
+  }
+
+  [role="banner"] {
+    margin-bottom: $vertical-measure;
+  }
+
+  section div {
+    padding: 1.8em 1em 0.93em 1em;
+  }
+
+  .hero {
+    @include clearfix;
+
+    .product-image {
+      height: $vertical-measure * 16;
+      width: columns(4);
+      @include offset(left, 1);
+    }
+  }
+
+  .partner-quotes {
+
+    div {
+      width: columns(1);
+    }
+
+    .twain {
+      @include last;
+    }
+  }
+
+  .executive-team {
+
+    div {
+      padding: 0;
+
+      img {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+
+    .ceo {
+      width: columns(2);
+    }
+
+    .other-executives {
+      width: columns(4);
+      @include nesting;
+      @include last;
+
+      div {
+        width: columns(1, 4);
+        margin-right: gutter(4);
+      }
+
+      .cio {
+        @include last;
+      }
+    }
+  }
+}
